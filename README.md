@@ -53,3 +53,7 @@ Funcionalidades que todavía faltan o están a medias:
 - **Configuración:** el intervalo de actualización (1 s) y los umbrales de los avisos están fijos en el código.
 - **Historial:** solo se guardan los últimos 60 segundos en memoria. No hay historial persistente ni exportación.
 - **Métricas de disco y GPU:** todavía no se muestran.
+
+## Licencia
+
+[MIT](LICENSE)
