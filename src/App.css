@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Tipografías empaquetadas con la app (licencia OFL), así no dependen de internet. */
+@font-face {
+  font-family: "Chakra Petch";
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/chakra-petch-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/chakra-petch-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/chakra-petch-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Chakra Petch";
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/chakra-petch-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/jetbrains-mono-latin-600-normal.woff2") format("woff2");
+}
+
+/* Paleta de consola. `static` emite todas las variables CSS, así también se
+   pueden usar desde `style={{ background: "var(--color-bad)" }}`. */
+@theme static {
+  --font-sans: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-page: #02070a;
+  --color-card: #061217;
+  --color-card-hi: #0b1e26;
+  --color-line: #14363f;
+  --color-ink: #d9f6f8;
+  --color-muted: #6b949c;
+
+  /* Cian: dato normal. Verde, ámbar y rojo quedan reservados para estados. */
+  --color-accent: #1fe0f0;
+  --color-good: #2ef2a6;
+  --color-warn: #ffa630;
+  --color-bad: #ff4352;
+  --color-bar: #1fe0f0;
+
+  --color-seg-1: #1fe0f0;
+  --color-seg-2: #7c9cff;
+  --color-seg-3: #1b4650;
+  --color-seg-4: #ffa630;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-page);
+  /* Cuadrícula tenue de fondo, como papel milimetrado de un panel de control. */
+  background-image:
+    linear-gradient(rgb(31 224 240 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(31 224 240 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Barras de desplazamiento finas, del color de las líneas. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Sin animaciones continuas ni transiciones: los datos cambian cada segundo y,
+   en WebKitGTK (el motor de Tauri en Linux), cada cuadro animado se redibuja
+   por software y consume CPU. */
